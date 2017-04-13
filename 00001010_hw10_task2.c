@@ -92,7 +92,6 @@ void ReadFile (char** data, struct Tsunami waves[])
         fscanf(inFile,"%d", &waves[i].fatalities);
         fscanf(inFile,"%lf", &waves[i].max_height);
         fscanf(inFile,"%s", waves[i].location);
-        printf("%d, %d, %d, %d, %lf, %s\n", waves[i].mo, waves[i].da, waves[i].yr, waves[i].fatalities, waves[i].max_height, waves[i].location);
     }
     fclose(inFile);
 
