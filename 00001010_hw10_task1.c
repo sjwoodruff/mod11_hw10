@@ -73,11 +73,12 @@ struct house InputHouse(void)
 // 2) Function to PrintHouse info
 void PrintHouse(char *name, struct house h)
 {
-	//......
 
+   printf("%s at %d %s for [%.2f]", name, h.num, h.name, h.price); 
+    return;
 }
 
-// 3) FUnction to Compare Prices
+// 3) Function to Compare Prices
 int ComparePrices(..........)
 {
 	//......
