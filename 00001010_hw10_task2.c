@@ -13,11 +13,19 @@
  */
 #include <stdio.h>		/* For Standard I/O */
 #include <stdlib.h>
+#include <string.h>    /* For String library */
 /* Function Prototypes */
+void Usage(char** info);
 
 /* Main Program */
 int main (int argc, char *argv[])
 {
+    // Call Usage funciton if there is not one string or if --help is the
+    // first string
+    if (argc != 2 || (strcmp(*(argv+1),"--help") == 0))
+    {
+        Usage(argv);
+    }
 
 	return 0;
 }
@@ -25,4 +33,20 @@ int main (int argc, char *argv[])
 
 /* Function Defenitions */
 
+/*
+ * ===  FUNCTION  ======================================================================
+ *         Name:  Usage
+ *  Description:  Explains how the funciton shoudl be used
+ *    Arguments:  Array of inputs when program is run (argv)
+ *      Returns:  Nothing
+ * =====================================================================================
+ */
+void Usage (char** info)
+{
+    // Display how to use the program
+    printf("Usage");
+    printf("%s <dataFile>\n", *info);
+    exit(1);
+    return;
+}		/* -----  end of function Usage  ----- */
 
