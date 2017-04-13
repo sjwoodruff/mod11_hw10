@@ -15,4 +15,15 @@
  *
  * =====================================================================================
  */
+// Define structure
+struct house
+{
+    int num;
+    char name[25];
+    float price;
+};
+
+/* Funciton Prototypes */
+struct house InputHouse(void);
+void PrintHouse(char *name, struct house h);
 
