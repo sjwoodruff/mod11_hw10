@@ -59,10 +59,16 @@ int main(int argc, char* argv[])
 
 /* Function Defenitions */
 // 1) Function for InputHouse
-struct house InputHouse(......)
+struct house InputHouse(void)
 {
-    scanf("
-	return house;
+    struct house hvalues;
+    printf("Please enter the street Number:");
+    scanf("%d", &hvalues.num);
+    printf("Please enter the street Name:");
+    scanf("%s",hvalues.name); 
+    printf("Please enter the Price:");
+    scanf("%f", &hvalues.price);
+	return hvalues;
 }
 // 2) Function to PrintHouse info
 void PrintHouse(char *name, struct house h)
