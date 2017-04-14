@@ -68,6 +68,7 @@ struct house InputHouse(void)
     scanf("%s",hvalues.name); 
     printf("Please enter the Price:");
     scanf("%f", &hvalues.price);
+    printf("\n");
 	return hvalues;
 }
 // 2) Function to PrintHouse info
@@ -79,9 +80,24 @@ void PrintHouse(char *name, struct house h)
 }
 
 // 3) Function to Compare Prices
-int ComparePrices(..........)
+int ComparePrices(struct house first, struct house second)
 {
-	//......
+    int i;
+    if(first.price < second.price)
+            {
+                i = -1;
+            }
+    if(first.price == second.price)
+            {
+                i = 0;
+            }
+    if(first.price > second.price)
+            {
+                i = 1;
+            }
+
+
+    return i; 
 }
 
 
