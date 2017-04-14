@@ -14,19 +14,25 @@
 #include <stdio.h>		/* For Standard I/O */
 #include <stdlib.h>
 #include <string.h>
+
+#define SIZE 81
+/* global variables */
+unsigned int nums[SIZE];
+char in[SIZE];
 /* Function Prototypes */
 void Usage(char **info);
-
+void ReadFile(char *file1, unsigned int num[]);
 /* Main Program */
-int main (int argc, char *argv[])
+int main (int argc,     char *argv[])
 {
-    
     if(argc != 2 || (strcmp(*(argv+1),"--help") == 0))
     {
         Usage(argv);
     }
-
-	return 0;
+    strcpy(in,argv[1]);
+    ReadFile(in,nums);
+    
+    return 0;
 }
 
 
@@ -38,3 +44,22 @@ void Usage(char **info)
     return;
 }
 
+void ReadFile(char *file1, unsigned int num[])
+{
+    FILE *infile = fopen(file1,"r");
+    if(infile == NULL)
+    {
+        exit(1);
+            }
+    
+
+    
+    while(fscanf(infile, "%X" , num)!= EOF)     
+    {
+    fgetc(infile);
+    num++;
+    
+    }
+      
+    return;
+}
