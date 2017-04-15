@@ -46,19 +46,18 @@ void Usage(char **info)
 
 void ReadFile(char *file1, unsigned int num[])
 {
+    int i = 0;
     FILE *infile = fopen(file1,"r");
     if(infile == NULL)
     {
         exit(1);
-            }
+    }
     
-
-    
-    while(fscanf(infile, "%X" , num)!= EOF)     
+    while(fscanf(infile, "%X" , &num[i])!= EOF)     
     {
-    fgetc(infile);
-    num++;
-    
+        fgetc(infile);
+        printf("%X", num[i]);
+        i++;
     }
       
     return;
