@@ -18,7 +18,7 @@
 #define SIZE 81
 /* global variables */
 unsigned int nums[SIZE];
-char in[SIZE];
+
 /* Function Prototypes */
 void Usage(char **info);
 void ReadFile(char *file1, unsigned int num[]);
@@ -29,8 +29,7 @@ int main (int argc,     char *argv[])
     {
         Usage(argv);
     }
-    strcpy(in,argv[1]);
-    ReadFile(in,nums);
+    ReadFile(argv[1],nums);
     
     return 0;
 }
@@ -41,6 +40,7 @@ int main (int argc,     char *argv[])
 void Usage(char **info)
 {
     printf("\nUsage: .%s <mp3Header.txt>\n\n",*info); 
+    exit (1);
     return;
 }
 
@@ -50,10 +50,11 @@ void ReadFile(char *file1, unsigned int num[])
     FILE *infile = fopen(file1,"r");
     if(infile == NULL)
     {
+        printf("The file was not successfully opened\n");
         exit(1);
     }
     
-    while(fscanf(infile, "%X" , &num[i])!= EOF)     
+    while(fscanf(infile, "%X" , &num[i])!= EOF)   
     {
         fgetc(infile);
         printf("%X", num[i]);
