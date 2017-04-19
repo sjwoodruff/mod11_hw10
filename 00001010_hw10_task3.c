@@ -15,9 +15,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define NROWS 3
+#define NCOL 8
 #define SIZE 81
 /* global variables */
 unsigned int nums[SIZE];
+unsigned int first[SIZE];
+
 char in[SIZE];
 /* Function Prototypes */
 void Usage(char **info);
@@ -31,7 +35,7 @@ int main (int argc,     char *argv[])
     }
     strcpy(in,argv[1]);
     ReadFile(in,nums);
-    
+
     return 0;
 }
 
@@ -46,19 +50,23 @@ void Usage(char **info)
 
 void ReadFile(char *file1, unsigned int num[])
 {
-    int i = 0;
+    int hex[SIZE][SIZE];
+    int i, j = 0;
     FILE *infile = fopen(file1,"r");
     if(infile == NULL)
     {
         exit(1);
     }
-    
-    while(fscanf(infile, "%X" , &num[i])!= EOF)     
+
+    while(i < NROWS && i != EOF)
     {
-        fgetc(infile);
-        printf("%X", num[i]);
+        while(j < NCOL && j != '\n')
+        {
+            fscanf(infile, "%X", &hex[i][j]);
+            fgetc(infile);
+            j++;
+        }
         i++;
     }
-      
     return;
 }
