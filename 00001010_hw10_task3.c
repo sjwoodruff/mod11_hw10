@@ -16,7 +16,7 @@
 #include <string.h>
 
 #define NROWS 3
-#define NCOL 8
+#define NCOL 4
 #define SIZE 81
 /* global variables */
 unsigned int nums[SIZE];
@@ -38,7 +38,7 @@ int main (int argc,     char *argv[])
     }
     strcpy(in,argv[1]);
     ReadFile(in,nums);
-    printf("%X", first[1]);
+    printf("\n%X", *first);
     return 0;
 }
 
@@ -53,8 +53,7 @@ void Usage(char **info)
 
 void ReadFile(char *file1, unsigned int num[])
 {
-    int hex[SIZE][SIZE];
-    int i, j = 0;
+    int i = 0, j = 0;
     FILE *infile = fopen(file1,"r");
     if(infile == NULL)
     {
@@ -62,30 +61,49 @@ void ReadFile(char *file1, unsigned int num[])
         exit(1);
     }
 
-    while(i < NROWS && i != EOF)   
+    /* I updatedthe below code. The reason it wasn't fully working was
+     * because you weren't resetting j to 0 after each inner while loop. It 
+     * "appeared to partially work becuase the the fscanf is pulling as many
+     * consective hex values before white space or a delimeter (comma in this
+     * case). So each 'j' iteration grabs two hex values (e.g. FF). But since
+     * j was only looping to 8, the j ran out and the loop was exited. Since
+     * the fscanf pulls as many consecutive hex values as it sees, teh NCOL
+     * is 4 instead of 8. I also
+     * removed the i !=EOF and j `= '\n'. j and i are not being set to the 
+     * fgetc or similar functions, and so they will never be the EOF or '\n'
+     * characters.
+     * Since we are already looping during the while loops I just put the 
+     * "first" "second" and "third" arrays into the while loop using if 
+     * statements. it just shortens the code slightly and uses less variables*/
+    while(i < NROWS)
     {
-        while(j < NCOL && j != '\n')
+        j = 0;
+        while(j < NCOL)
         {
-            fscanf(infile, "%X", &hex[i][j]);
+            switch (i)
+            {
+                case 0:
+                    {
+                        fscanf(infile, "%X", &first[j]);
+                        break;
+                    }
+                case 1:
+                    {
+                        fscanf(infile, "%X", &second[j]);
+                        break;
+                    }
+                case 2:
+                    {
+                        fscanf(infile, "%X", &third[j]);
+                        break;
+                    }
+            }
             fgetc(infile);
             j++;
         }
         i++;
     }
-
-    for(int s = 0; s < NCOL; s++)
-    {
-        first[s] = hex[0][s];
-    }
-
-    for(int s = 0; s < NCOL; s++)
-    {
-        second[s] = hex[1][s];
-    }
-
-    for(int s = 0; s < NCOL; s++)
-    {
-        third[s] = hex[2][s];
-    }
-    return;
+    printf("%X%X%X%X", first[0], first[1], first[2], first[3]);
+    printf("%X%X%X%X", second[0], second[1], second[2], second[3]);
+    printf("%X%X%X%X", third[0], third[1], third[2], third[3]);
 }
