@@ -59,7 +59,7 @@ void ReadFile(char *file1, unsigned int num[])
         exit(1);
     }
 
-    while(fscanf(infile, "%X" , &hex[i][j])!= EOF)   
+    while(i < NROWS && i != EOF)   
     {
         while(j < NCOL && j != '\n')
         {
