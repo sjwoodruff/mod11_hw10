@@ -21,6 +21,8 @@
 /* global variables */
 unsigned int nums[SIZE];
 unsigned int first[SIZE];
+unsigned int second[SIZE];
+unsigned int third[SIZE];
 
 char in[SIZE];
 
@@ -36,6 +38,7 @@ int main (int argc,     char *argv[])
     }
     strcpy(in,argv[1]);
     ReadFile(in,nums);
+    printf("%X", first[1]);
     return 0;
 }
 
@@ -68,6 +71,21 @@ void ReadFile(char *file1, unsigned int num[])
             j++;
         }
         i++;
+    }
+
+    for(int s = 0; s < NCOL; s++)
+    {
+        first[s] = hex[0][s];
+    }
+
+    for(int s = 0; s < NCOL; s++)
+    {
+        second[s] = hex[1][s];
+    }
+
+    for(int s = 0; s < NCOL; s++)
+    {
+        third[s] = hex[2][s];
     }
     return;
 }
