@@ -56,7 +56,7 @@ void ReadFile(char *file1, unsigned int num[])
     int i = 0, j = 0;
     FILE *infile = fopen(file1,"r");
     char str1[8], str2[8], str3[8];
-    unsigned int fil1, fil2, fil3;
+    unsigned int header[3];
     if(infile == NULL)
     {
         printf("The file was not successfully opened\n");
@@ -105,19 +105,14 @@ void ReadFile(char *file1, unsigned int num[])
         }
         i++;
     }
-    printf("%x%x%x%x", first[0], first[1], first[2], first[3]);
-    printf("%X%X%X%X", second[0], second[1], second[2], second[3]);
-    printf("%X%X%X%X", third[0], third[1], third[2], third[3]);
     sprintf(str1, "%x%x%x%x", first[0], first[1], first[2], first[3]);
     sprintf(str2, "%x%x%x%x", second[0], second[1], second[2], second[3]);
     sprintf(str3, "%x%x%x%x", third[0], third[1], third[2], third[3]);
-    printf("\n%s", str1);
-    printf("\n%s", str2);
-    printf("\n%s", str3);
-    fil1 = strtol(str1, NULL, 16);
-    fil2 = atoi(str2);
-    fil3 = atoi(str3);
-    printf("\n%X", fil1);
-    printf("\n%X", fil2);
-    printf("\n%X", fil3);
+    header[0] = strtol(str1, NULL, 16);
+    header[1] = strtol(str2, NULL, 16);
+    header[2] = strtol(str3, NULL, 16);
+    for (i = 0; i < 3; i++)
+    {
+        printf("%X\n", header[i]);
+    }
 }
