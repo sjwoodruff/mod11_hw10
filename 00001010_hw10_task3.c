@@ -38,11 +38,17 @@ int main (int argc,     char *argv[])
     }
     strcpy(in,argv[1]);
     ReadFile(in,nums);
-    printf("\n%X", *first);
     return 0;
 }
 
-/* Function Defenitions */
+/*
+ * ===  FUNCTION  ======================================================================
+ *         Name:  Usage
+ *  Description:  Help Function
+ *    Arguments:  requires the right inputs or --help
+ *      Returns:  Nothing
+ * =====================================================================================
+ */
 
 void Usage(char **info)
 {
@@ -50,7 +56,18 @@ void Usage(char **info)
     exit (1);
     return;
 }
+/* -----  end of function Usage  ----- */
 
+
+
+/*
+ * ===  FUNCTION  ======================================================================
+ *         Name:  ReadFile
+ *  Description:  Reads the file and stores the data as unsigned int
+ *    Arguments:  File to be read, unsigned int array
+ *      Returns:  Nothing
+ * =====================================================================================
+ */
 void ReadFile(char *file1, unsigned int num[])
 {
     int i = 0, j = 0;
@@ -116,3 +133,18 @@ void ReadFile(char *file1, unsigned int num[])
         printf("%X\n", header[i]);
     }
 }
+/* -----  end of function Usage  ----- */
+
+
+/*
+ * ===  FUNCTION  ======================================================================
+ *         Name:  MPEG Version
+ *  Description:  Perform bitwise function to determine mpeg version
+ *    Arguments:  File to be read, unsigned int array
+ *      Returns:  Nothing
+ * =====================================================================================
+ */
+
+
+
+

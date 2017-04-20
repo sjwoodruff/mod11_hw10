@@ -95,7 +95,7 @@ void ReadFile (char** data, struct Tsunami waves[])
     }
     fclose(inFile);
 
-    return;
+   return;
 }		/* -----  end of function ReadFile  ----- */
 
 
