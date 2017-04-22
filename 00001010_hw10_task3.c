@@ -192,23 +192,23 @@ void DispMPEG (unsigned int val)
 void DispLayer(unsigned int val1)
 {
 
-    int layer;
+    char layer[3];
     val1 = val1 & 0x60000;
     val1 = val1 >> 17;
     switch (val1)
     {
         case 1:
         {
-           layer = 3;
+            strcpy(layer,"III");
             break;
         }
         case 2:
         {
-            layer = 2;
+            strcpy(layer, "II");
             break;
         }
     }
-    printf("[%d] Layer %d\n", val1, layer);
+    printf("[%d] Layer %s\n", val1, layer);
     return;
 }
 
@@ -285,7 +285,7 @@ void DispRate(unsigned int val2)
         }
         case 3:
         {
-            printf("[%d] reserv.\n", val2);
+            printf("[%d] Reserved\n", val2);
             break;
         }
     }
