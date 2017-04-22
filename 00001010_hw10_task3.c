@@ -32,6 +32,7 @@ void Usage(char **info);
 void ReadFile(char *file1, unsigned int num[]);
 void DispMPEG(unsigned int val);
 void DispLayer(unsigned int val1);
+void DispRate(unsigned int val2);
 /* Main Program */
 int main (int argc,     char *argv[])
 {
@@ -50,6 +51,8 @@ int main (int argc,     char *argv[])
         // Call function to Display Layer
         DispLayer(nums[i]);
         // Call function to display sampling Rate
+        DispRate(nums[i]);
+        printf("\n\n");
     }
     return 0;
 }
@@ -127,10 +130,6 @@ void ReadFile(char *file1, unsigned int num[])
     num[0] = strtol(str1, NULL, 16);
     num[1] = strtol(str2, NULL, 16);
     num[2] = strtol(str3, NULL, 16);
-    for (i = 0; i < 3; i++)
-    {
-        printf("%X\n", num[i]);
-    }
 }
 /* -----  end of function Usage  ----- */
 
@@ -160,13 +159,9 @@ void DispMPEG (unsigned int val)
 {
     // Declare variables
     float vers;
-    printf("Hex value is %x\n", val);
-    // Perform Bitwise operation to set all bits but 19 and 20 to zero 
+    printf("You Read [%x]\n", val);
     val = val & 0x180000;
-    printf("Hex value is %x\n", val);
-    // Perform Bitwise operation to make bits 19 and 20 be the first two bits
     val = val >> 19;
-    printf("Hex value is %x\n", val);
     switch (val)
     {
         case 0:
@@ -198,13 +193,8 @@ void DispLayer(unsigned int val1)
 {
 
     int layer;
-    printf("Hex value is %x\n", val1);
-    // Perform Bitwise operation to set all bits but 18 and 17 to zero 
     val1 = val1 & 0x60000;
-    printf("Hex value is %x\n", val1);
-    // Perform Bitwise operation to make bits 18 and 17 be the first two bits
     val1 = val1 >> 17;
-    printf("Hex value is %x\n", val1);
     switch (val1)
     {
         case 1:
@@ -221,3 +211,85 @@ void DispLayer(unsigned int val1)
     printf("[%d] Layer %d\n", val1, layer);
     return;
 }
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  DispRate
+ *  Description:  
+ * =====================================================================================
+ */
+void DispRate(unsigned int val2)
+{
+    int rate = val2;
+    int mpeg = val2;
+
+    val2 = val2 & 0x00000C00;
+    val2 = val2 >> 10;
+   
+    mpeg = mpeg & 0x180000;
+    mpeg = mpeg >> 19;
+
+    switch (val2)
+    {
+        case  0:
+        {
+           if (mpeg ==  0)
+            {
+                rate = 11025;
+            }
+           else if (mpeg ==  2)
+            {
+                rate = 22050;
+            }
+           else if (mpeg ==  3)
+            {
+                rate = 44100;
+            }
+        printf("[%d] %d Hz\n", val2, rate);
+           break;
+        }
+        case 1:
+        {
+           if (mpeg ==  0)
+            {
+                rate = 12000;
+            }
+           else if (mpeg ==  2)
+            {
+                rate = 24000;
+            }
+           else if (mpeg ==  3)
+            {
+                rate = 48000;
+            }
+        printf("[%d] %d Hz\n", val2, rate);
+            break;
+        }
+        case 2:
+        {
+           if (mpeg ==  0)
+            {
+                rate = 8000;
+            }
+           else if (mpeg ==  2)
+            {
+                rate = 16000;
+            }
+           else if (mpeg ==  3)
+            {
+                rate = 32000;
+            }
+        printf("[%d] %d Hz\n", val2, rate);
+            break;
+        }
+        case 3:
+        {
+            printf("[%d] reserv.\n", val2);
+            break;
+        }
+    }
+
+
+    return;
+}		/* -----  end of function DispRate  ----- */
