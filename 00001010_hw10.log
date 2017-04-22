@@ -1,0 +1,204 @@
+commit 52b4e8cc8c98d749d3ebd88161bc72d7ce4763c7
+Author: ahlweb <adamlee1@mail.weber.edu>
+Date:   Sat Apr 22 10:06:52 2017 -0600
+
+    finshed
+
+commit 5e905dc325ffb31ccf971263119eba8ac3cb853a
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Sat Apr 22 09:42:29 2017 -0600
+
+    Final task3
+
+commit f23e2b26ca4d82dda23d43b75f8c58278354968a
+Author: ahlweb <adamlee1@mail.weber.edu>
+Date:   Sat Apr 22 00:22:55 2017 -0600
+
+    got layer mostly done just need it to be in roman numeral
+
+commit 555a7522458f15479f40528daa4e4a0f2317be98
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Fri Apr 21 19:54:57 2017 -0600
+
+    Task3. Got the funciton to display the MPEG version complete
+
+commit a1d4273b8f49ce4bb605e26bf4f44c7e4057c198
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Wed Apr 19 19:24:33 2017 -0600
+
+    commit
+
+commit e0383eb4be9293c0727a644d3ee9471e2c25bb24
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Wed Apr 19 16:55:13 2017 -0600
+
+    Task3.
+
+commit 8724b4779003de67f23317b4faee4e6cf307e95b
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Wed Apr 19 15:22:56 2017 -0600
+
+    Task3. Was able to convert it to a single string and then back to hex
+
+commit 831b22a36a4493b0ca521817caecdff4e0c14a20
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Tue Apr 18 21:51:49 2017 -0600
+
+    Task3. Function is reading and storing to the arrays correctly (as hexes) but I think we will need to do it as strings first so we can have a single (large) hex value for each row.
+
+commit a9b2103fe23126a978ee9f24b9ada109c3d9eac5
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Tue Apr 18 20:10:58 2017 -0600
+
+    assign to global variables
+
+commit 3459a33ca1759243a1635766ee8530b2381c56df
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Tue Apr 18 20:02:43 2017 -0600
+
+    read file
+
+commit d09fe5394277040e56ca9136fd54ad1f790373a2
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Tue Apr 18 19:57:26 2017 -0600
+
+    readfile
+
+commit 40a3e87ce065067afd2dcf2e31301316f1f46481
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Tue Apr 18 19:52:47 2017 -0600
+
+    readfile
+
+commit 1a99347cd458edbac08c5039f6f462520afba5a4
+Merge: e0d6a58 50593a0
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Tue Apr 18 19:50:59 2017 -0600
+
+    Merge branch 'master' of https://github.com/sjwoodruff/mod11_hw10
+
+commit e0d6a5805b401c5e9816635f4d0ec5572e82f232
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Tue Apr 18 19:33:42 2017 -0600
+
+    read file with 2d array
+
+commit 50593a0c7ef269f6b230196adbdc62b397e2f1f7
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Tue Apr 18 17:59:31 2017 +0000
+
+    Task3. Added exit(1) to the usage file.
+
+commit 23859d7211cc5ee52309b0394f35357c3d3db596
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Sat Apr 15 03:21:56 2017 +0000
+
+    readfile
+
+commit a409a41cec7fb9494558572d4ba21c36ba75e864
+Author: ahlweb <adamlee1@mail.weber.edu>
+Date:   Fri Apr 14 17:38:41 2017 +0000
+
+    ReadFile() started
+
+commit a6970d04b2238d6167fa473f9cd0fd8da3fe5980
+Author: ahlweb <adamlee1@mail.weber.edu>
+Date:   Fri Apr 14 04:53:35 2017 +0000
+
+    Usage done and loading required .txt file
+
+commit c330c2ac1fd2a2060a61abf6ae16f7b66cb1b3e4
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Fri Apr 14 02:10:30 2017 +0000
+
+    task1 commit
+
+commit 7dae8ea646c6be57a2160983520dc03c04b0fd82
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Thu Apr 13 16:26:14 2017 +0000
+
+    commit
+
+commit 8abfa6ddd835cf9eaf61eaf0daf39b21c25cc966
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Thu Apr 13 16:17:13 2017 +0000
+
+    task1
+
+commit 90c0b7bc50feee211cfdcb4b4418a1b385c6cb63
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Apr 13 16:15:28 2017 +0000
+
+    Added the final function
+
+commit efdd0031f3cb9f9f0254fef92390a660103cf2b5
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Apr 13 16:08:11 2017 +0000
+
+    task1 header file updated with structure and first two functions
+
+commit 1a6525c373a4873961545dbc2f882e3e50a7d081
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Thu Apr 13 15:58:54 2017 +0000
+
+    header
+
+commit 3926b29492fbc5166bf2eb25a3a3c93d63554dde
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Thu Apr 13 15:45:14 2017 +0000
+
+    houseSample.c add
+
+commit 1b9ed781c29cb39fc85b640354dbffb55f6dd00d
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Apr 13 14:32:43 2017 +0000
+
+    Task2. Removed print debugging statement
+
+commit d6872150fbf7cc9a985fd2de38d45299d739034e
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Apr 13 14:22:24 2017 +0000
+
+    Task2. Fucnitonal, just needs cleanup
+
+commit 472045517532d9fdd50c1bc6deffcb5fcca9b143
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Apr 13 13:23:39 2017 +0000
+
+    .gitignore: Added the task executables to .gitignore
+
+commit d6a692b3eb514021bdb24a67829789cf5ffb0c61
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Apr 13 13:19:31 2017 +0000
+
+    .gitignore: added waves.txt
+
+commit e6756f3f429a681447517653262b2b09392bb9d4
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Apr 13 13:19:04 2017 +0000
+
+    Task2. Usage funciton implemented
+
+commit ad9baa2d1ceb7499c5b5865b48a699ca233a0993
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Apr 13 13:03:25 2017 +0000
+
+    added .gitignore. Added one extra zero to the filenames
+
+commit b9e9b1b5c884654fec338b22b668c2a932f89876
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Wed Apr 12 23:33:24 2017 +0000
+
+    initial
+
+commit f934a0c081800c3df99d6a0c806c6976743ac5aa
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Wed Apr 12 23:28:00 2017 +0000
+
+    initial commit
+
+commit e91145888b700c44c31238c19db94ee68d4cd52c
+Author: sjwoodruff <sjwoodruff100@msn.com>
+Date:   Tue Apr 11 10:15:21 2017 -0600
+
+    Initial commit
