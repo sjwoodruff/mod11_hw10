@@ -31,7 +31,7 @@
 void Usage(char **info);
 void ReadFile(char *file1, unsigned int num[]);
 void DispMPEG(unsigned int val);
-
+void DispLayer(unsigned int val1);
 /* Main Program */
 int main (int argc,     char *argv[])
 {
@@ -48,6 +48,7 @@ int main (int argc,     char *argv[])
         // Call funciton to Display MPEG version
         DispMPEG(nums[i]);
         // Call function to Display Layer
+        DispLayer(nums[i]);
         // Call function to display sampling Rate
     }
     return 0;
@@ -187,3 +188,36 @@ void DispMPEG (unsigned int val)
     printf("[%d] MPEG  Version %.1f\n", val, vers);
     return;
 }		/* -----  end of function DispMPEG  ----- */
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  DispLayer
+ *  Description:  DIsplay Layer
+ * =====================================================================================
+ */
+void DispLayer(unsigned int val1)
+{
+
+    int layer;
+    printf("Hex value is %x\n", val1);
+    // Perform Bitwise operation to set all bits but 18 and 17 to zero 
+    val1 = val1 & 0x60000;
+    printf("Hex value is %x\n", val1);
+    // Perform Bitwise operation to make bits 18 and 17 be the first two bits
+    val1 = val1 >> 17;
+    printf("Hex value is %x\n", val1);
+    switch (val1)
+    {
+        case 1:
+        {
+           layer = 3;
+            break;
+        }
+        case 2:
+        {
+            layer = 2;
+            break;
+        }
+    }
+    printf("[%d] Layer %d\n", val1, layer);
+    return;
+}
