@@ -19,25 +19,37 @@
 #define NCOL 4
 #define SIZE 81
 /* global variables */
-unsigned int nums[SIZE];
-unsigned int first[SIZE];
-unsigned int second[SIZE];
-unsigned int third[SIZE];
-
-char in[SIZE];
+// I removed the global variables just because I think I remember Hugo saying
+// that it is best practice not to set global variables unless they are 
+// absolutely neccessary. This is because the program will take less memory
+// to run if local variables are used (memory is freed up when the funciton
+// is complete if  the variable is local to the funciton. I also took out the 
+// "in" array that stored the argv[1] value...since you can just pass the 
+// argv[1] value. That way it uses less memory I think. -- Chris
 
 /* Function Prototypes */
 void Usage(char **info);
 void ReadFile(char *file1, unsigned int num[]);
+void DispMPEG(unsigned int val);
+
 /* Main Program */
 int main (int argc,     char *argv[])
 {
+    // Declare variables
+    unsigned int nums[NROWS];
     if(argc != 2 || (strcmp(*(argv+1),"--help") == 0))
     {
         Usage(argv);
     }
-    strcpy(in,argv[1]);
-    ReadFile(in,nums);
+    ReadFile(argv[1],nums);
+    // Save the previous array so information is not overwritten
+    for (int i = 0; i < NROWS; i++)
+    {
+        // Call funciton to Display MPEG version
+        DispMPEG(nums[i]);
+        // Call function to Display Layer
+        // Call function to display sampling Rate
+    }
     return 0;
 }
 
@@ -70,30 +82,16 @@ void Usage(char **info)
  */
 void ReadFile(char *file1, unsigned int num[])
 {
+    // Declare variables
     int i = 0, j = 0;
+    unsigned int first[SIZE], second[SIZE], third[SIZE];
     FILE *infile = fopen(file1,"r");
     char str1[8], str2[8], str3[8];
-    unsigned int header[3];
     if(infile == NULL)
     {
         printf("The file was not successfully opened\n");
         exit(1);
     }
-
-    /* I updatedthe below code. The reason it wasn't fully working was
-     * because you weren't resetting j to 0 after each inner while loop. It 
-     * "appeared to partially work becuase the the fscanf is pulling as many
-     * consective hex values before white space or a delimeter (comma in this
-     * case). So each 'j' iteration grabs two hex values (e.g. FF). But since
-     * j was only looping to 8, the j ran out and the loop was exited. Since
-     * the fscanf pulls as many consecutive hex values as it sees, teh NCOL
-     * is 4 instead of 8. I also
-     * removed the i !=EOF and j `= '\n'. j and i are not being set to the 
-     * fgetc or similar functions, and so they will never be the EOF or '\n'
-     * characters.
-     * Since we are already looping during the while loops I just put the 
-     * "first" "second" and "third" arrays into the while loop using if 
-     * statements. it just shortens the code slightly and uses less variables*/
     while(i < NROWS)
     {
         j = 0;
@@ -125,12 +123,12 @@ void ReadFile(char *file1, unsigned int num[])
     sprintf(str1, "%x%x%x%x", first[0], first[1], first[2], first[3]);
     sprintf(str2, "%x%x%x%x", second[0], second[1], second[2], second[3]);
     sprintf(str3, "%x%x%x%x", third[0], third[1], third[2], third[3]);
-    header[0] = strtol(str1, NULL, 16);
-    header[1] = strtol(str2, NULL, 16);
-    header[2] = strtol(str3, NULL, 16);
+    num[0] = strtol(str1, NULL, 16);
+    num[1] = strtol(str2, NULL, 16);
+    num[2] = strtol(str3, NULL, 16);
     for (i = 0; i < 3; i++)
     {
-        printf("%X\n", header[i]);
+        printf("%X\n", num[i]);
     }
 }
 /* -----  end of function Usage  ----- */
@@ -148,3 +146,44 @@ void ReadFile(char *file1, unsigned int num[])
 
 
 
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  DispMPEG
+ *  Description:  Determines and Displays the MPEG version
+ *    Arguments:  Array containing header file
+ *      Returns:  Nothing
+ * =====================================================================================
+ */
+void DispMPEG (unsigned int val)
+{
+    // Declare variables
+    float vers;
+    printf("Hex value is %x\n", val);
+    // Perform Bitwise operation to set all bits but 19 and 20 to zero 
+    val = val & 0x180000;
+    printf("Hex value is %x\n", val);
+    // Perform Bitwise operation to make bits 19 and 20 be the first two bits
+    val = val >> 19;
+    printf("Hex value is %x\n", val);
+    switch (val)
+    {
+        case 0:
+        {
+            vers = 2.5;
+            break;
+        }
+        case 2:
+        {
+            vers = 2;
+            break;
+        }
+        case 3:
+        {
+            vers = 1;
+            break;
+        }
+    }
+    printf("[%d] MPEG  Version %.1f\n", val, vers);
+    return;
+}		/* -----  end of function DispMPEG  ----- */
